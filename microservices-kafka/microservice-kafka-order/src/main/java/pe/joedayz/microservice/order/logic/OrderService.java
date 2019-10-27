@@ -35,4 +35,9 @@ public class OrderService {
     private void fireOrderCreatedEvent(Order order) {
         kafkaTemplate.send("order", order.getId() + "created", order);
     }
+
+
+    public double getPrice(long orderId) {
+        return orderRepository.findById(orderId).get().totalPrice();
+    }
 }

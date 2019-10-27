@@ -3,23 +3,23 @@
 	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	layout:decorator="layout">
 <head>
-<title>Ordenes : Ver todas</title>
+<title>Ver Ordenes</title>
 </head>
 <body>
-	<h1 layout:fragment="header">Order : View all</h1>
+	<h1 layout:fragment="header">Ver Ordenes</h1>
 	<div layout:fragment="content" class="container">
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
 					<td>ID</td>
-					<td>Customer</td>
-					<td>Total Price</td>
+					<td>Cliente</td>
+					<td>Precio Total</td>
 					<td></td>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:if="${orders.empty}">
-					<td colspan="4">No orders</td>
+					<td colspan="4">No hay ordenes</td>
 				</tr>
 				<tr th:each="order : ${orders}">
 					<td><a href="order/1" th:href="${order.id}"
@@ -36,7 +36,7 @@
 		</table>
 		<div class="row">
 			<div class="col-md-4">
-				<a href="form.html">Add Order</a>
+				<a href="form.html">Crear Orden</a>
 			</div>
 		</div>
 	</div>

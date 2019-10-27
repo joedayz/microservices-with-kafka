@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Facturación</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Facturación</h1>
+	<div layout:fragment="content" class="container">
+
+		<div class="row">
+			<div class="col-md-2">
+				<b>Cliente</b>
+			</div>
+			<div class="col-md-2"
+				th:text="${invoice.customer.firstname}+' '+${invoice.customer.name}"></div>
+			<div class="col-md-2"
+				th:text="${invoice.customer.email}"></div>
+		</div>
+
+		<div class="row">
+			<h2>Dirección de Pago</h2>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<b>Calle</b>
+			</div>
+			<div class="col-md-2" th:text="${invoice.billingAddress.street}"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<b>Código Postal</b>
+			</div>
+			<div class="col-md-2" th:text="${invoice.billingAddress.zip}"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<b>Ciudad</b>
+			</div>
+			<div class="col-md-2" th:text="${invoice.billingAddress.city}"></div>
+		</div>
+
+		<div class="row">
+			<h2>Detalle Factura</h2>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<b>Cantidad</b>
+			</div>
+			<div class="col-md-2">
+				<b>Item</b>
+			</div>
+			<div class="col-md-2">
+				<b>Nombre</b>
+			</div>
+			<div class="col-md-2">
+				<b>Precio</b>
+			</div>
+			<div class="col-md-2">
+				<b>Precio Total</b>
+			</div>
+		</div>
+
+		<div class="row" th:each="invoiceLine : ${invoice.invoiceLine}">
+			<div class="col-md-2" th:text="${invoiceLine.count}"></div>
+			<div class="col-md-2" th:text="${invoiceLine.item.itemId}"></div>
+			<div class="col-md-2" th:text="${invoiceLine.item.name}"></div>
+			<div class="col-md-2" th:text="${invoiceLine.item.price}"></div>
+			<div class="col-md-2" th:text="${invoiceLine.totalAmount()}"></div>
+		</div>
+
+	</div>
+</body>
+</html>

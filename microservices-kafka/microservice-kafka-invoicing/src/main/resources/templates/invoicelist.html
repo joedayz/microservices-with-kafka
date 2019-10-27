@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Facturación : Ver todo</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Facturación : Ver todo</h1>
+	<div layout:fragment="content" class="container">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Cliente</td>
+					<td>Cantidad Total</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${invoices.empty}">
+					<td colspan="4">No hay facturas</td>
+				</tr>
+				<tr th:each="invoice : ${invoices}">
+					<td><a href="invoice/1" th:href="${invoice.id}"
+						th:text="${invoice.id}">1</a></td>
+					<td
+						th:text="${invoice.customer.firstname} + ' ' + ${invoice.customer.name}">Nombres</td>
+					<td th:text="${invoice.totalAmount()}">42.0</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Shipping</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Shipping</h1>
+	<div layout:fragment="content" class="container">
+
+		<div class="row">
+			<div class="col-md-2">
+				<b>Cliente</b>
+			</div>
+			<div class="col-md-2"
+				th:text="${shipment.customer.firstname}+' '+${shipment.customer.name}"></div>
+		</div>
+
+		<div class="row">
+			<h2>Dirección de Entrega</h2>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<b>Calle</b>
+			</div>
+			<div class="col-md-2" th:text="${shipment.shippingAddress.street}"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<b>Código Postal</b>
+			</div>
+			<div class="col-md-2" th:text="${shipment.shippingAddress.zip}"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<b>Ciudad</b>
+			</div>
+			<div class="col-md-2" th:text="${shipment.shippingAddress.city}"></div>
+		</div>
+
+		<div class="row">
+			<h2>Detalle de Entrega</h2>
+		</div>
+
+		<div class="row">
+			<div class="col-md-2">
+				<b>Cantidad</b>
+			</div>
+			<div class="col-md-2">
+				<b>Item Id</b>
+			</div>
+			<div class="col-md-2">
+				<b>Nombre de Item</b>
+			</div>
+		</div>
+
+		<div class="row" th:each="shipmentLine : ${shipment.shipmentLine}">
+			<div class="col-md-2" th:text="${shipmentLine.count}"></div>
+			<div class="col-md-2" th:text="${shipmentLine.item.itemId}"></div>
+			<div class="col-md-2" th:text="${shipmentLine.item.name}"></div>
+		</div>
+
+	</div>
+</body>
+</html>

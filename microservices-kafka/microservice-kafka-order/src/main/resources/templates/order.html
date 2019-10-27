@@ -3,66 +3,66 @@
 	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
 	layout:decorator="layout">
 <head>
-<title>Order</title>
+<title>Ordenes</title>
 </head>
 <body>
-	<h1 layout:fragment="header">Order</h1>
+	<h1 layout:fragment="header">Ordenes</h1>
 	<div layout:fragment="content" class="container">
 
 		<div class="row">
-			<div class="col-md-2"><b>Customer</b></div>
+			<div class="col-md-2"><b>Cliente</b></div>
 			<div class="col-md-2"
 				th:text="${order.customer.firstname}+' '+${order.customer.name}"></div>
 		</div>
 		
 		<div class="row">
-			<div class="col-md-2"><b>Total price</b></div>
+			<div class="col-md-2"><b>Precio Total</b></div>
 			<div class="col-md-2" th:text="${order.totalPrice()}"></div>
 		</div>
 
 		<div class="row">
-			<h2>Shipping Address</h2>
+			<h2>Dirección de Shipping </h2>
 		</div>
 
 		<div class="row">
-			<div class="col-md-2"><b>Street</b></div>
+			<div class="col-md-2"><b>Calle</b></div>
 			<div class="col-md-2" th:text="${order.shippingAddress.street}"></div>
 		</div>
 		<div class="row">
-			<div class="col-md-2"><b>Zip</b></div>
+			<div class="col-md-2"><b>Código Postal</b></div>
 			<div class="col-md-2" th:text="${order.shippingAddress.zip}"></div>
 		</div>
 		<div class="row">
-			<div class="col-md-2"><b>City</b></div>
+			<div class="col-md-2"><b>Ciudad</b></div>
 			<div class="col-md-2" th:text="${order.shippingAddress.city}"></div>
 		</div>
 
 
 		<div class="row">
-			<h2>Billing Address</h2>
+			<h2>Dirección de Billing</h2>
 		</div>
 
 		<div class="row">
-			<div class="col-md-2"><b>Street</b></div>
+			<div class="col-md-2"><b>Calle</b></div>
 			<div class="col-md-2" th:text="${order.billingAddress.street}"></div>
 		</div>
 		<div class="row">
-			<div class="col-md-2"><b>Zip</b></div>
+			<div class="col-md-2"><b>Código Postal</b></div>
 			<div class="col-md-2" th:text="${order.billingAddress.zip}"></div>
 		</div>
 		<div class="row">
-			<div class="col-md-2"><b>City</b></div>
+			<div class="col-md-2"><b>Ciudad</b></div>
 			<div class="col-md-2" th:text="${order.billingAddress.city}"></div>
 		</div>
 
 		<div class="row">
-			<h2>Order Lines</h2>
+			<h2>Detalle de Orden</h2>
 		</div>
 
 		<div class="row">
-			<div class="col-md-2"><b>Quantity</b></div>
+			<div class="col-md-2"><b>Cantidad</b></div>
 			<div class="col-md-2"><b>Item</b></div>
-			<div class="col-md-2"><b>Price</b></div>
+			<div class="col-md-2"><b>Precio</b></div>
 
 		</div>
 
